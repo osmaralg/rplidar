@@ -17,7 +17,7 @@ def run(usb):
     PORT_NAME = PORT_NAME + str(usb)
     lidar = RPLidar(PORT_NAME)
     data = []
-    limit = 45
+    limit = 45.0
     sector = np.zeros(1)
     # commenta
     try:
@@ -39,7 +39,7 @@ def run(usb):
             print(dist, angle)
             #
             if angle < limit:
-                sector = np.append(sector, angle)
+                np.append(sector, angle)
 
             '''
             else:
@@ -58,8 +58,8 @@ def run(usb):
 
     except KeyboardInterrupt:
         print('Stoping.')
-    lidar.stop()
-    lidar.disconnect()
+        lidar.stop()
+        lidar.disconnect()
 
 
 if __name__ == '__main__':
