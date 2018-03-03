@@ -51,7 +51,7 @@ def run(usb):
         print('Stoping.')
     lidar.stop()
     lidar.disconnect()
-    np.save(path, np.array(data))
+
 
 if __name__ == '__main__':
     run(sys.argv[1])
