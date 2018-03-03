@@ -34,9 +34,10 @@ def run(usb):
             angle = one_scan[2]
             print(dist, angle)
 
-            '''
+
             if angle < limit:
                 sector = np.append(sector,dist)
+            '''
             else:
                 sector_avg = np.average(sector)
                 limit = limit + 45
