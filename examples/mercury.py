@@ -21,9 +21,13 @@ def run(usb):
     # commenta
     try:
         print('Recording measurments... Press Crl+C to stop.')
-        iterator = lidar.iter_scans()
 
-        print (iterator)
+        for measurment in lidar.iter_measurments():
+            line = '\t'.join(str(v) for v in measurment)
+            print (line)
+
+
+
         '''
         iterator = np.asarray(iterator)
         print(iterator)
