@@ -22,7 +22,9 @@ def run(usb):
     try:
         print('Recording measurments... Press Crl+C to stop.')
         iterator = lidar.iter_scans()
+
         print (iterator)
+        '''
         iterator = np.asarray(iterator)
         print(iterator)
 
@@ -44,7 +46,7 @@ def run(usb):
 
             if sector_avg < distance_warning:
                 bounds[(limit-90)/45] = 1
-
+        '''
     except KeyboardInterrupt:
         print('Stoping.')
     lidar.stop()
