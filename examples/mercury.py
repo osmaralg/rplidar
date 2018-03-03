@@ -19,7 +19,7 @@ def run():
     lidar = RPLidar(PORT_NAME)
     data = []
     limit = 45
-    # comment
+    # commenta
     try:
         print('Recording measurments... Press Crl+C to stop.')
         iterator = lidar.iter_scans()
