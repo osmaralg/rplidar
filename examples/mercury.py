@@ -37,7 +37,7 @@ def run(usb):
             print(dist, angle)
 
             if angle < limit:
-                sector = np.append(sector,dist)
+                sector = np.append(sector, angle)
 
             else:
                 print(sector)
