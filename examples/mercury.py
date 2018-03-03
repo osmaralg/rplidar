@@ -13,7 +13,7 @@ from rplidar import RPLidar
 
 
 
-def run(path):
+def run():
     '''Main function'''
     PORT_NAME = '/dev/ttyUSB0'
     lidar = RPLidar(PORT_NAME)
