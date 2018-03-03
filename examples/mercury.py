@@ -21,6 +21,7 @@ def run():
     try:
         print('Recording measurments... Press Crl+C to stop.')
         iterator = lidar.iter_scans()
+        print (iterator)
         iterator = np.asarray(iterator)
         print(iterator)
 
