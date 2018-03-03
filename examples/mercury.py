@@ -28,25 +28,25 @@ def run(usb):
             line = '\t'.join(str(v) for v in measurment)
 
 
-        n = np.size(lecture)
-        sector = np.zeros(1)
-        bounds = np.zeros(8)
-        sector_avg = 6
-        distance_warning = .4
+            sector = np.zeros(1)
+            bounds = np.zeros(8)
+            sector_avg = 0
+            distance_warning = .4
+            #
+            dist = one_scan[3]
+            angle = one_scan[2]
+            if angle < limit:
+                sector = np.append(dist)
+            else:
+                sector_avg = np.avg(sector)
+                limit = limit + 45
 
-        dist = one_scan[3]
-        angle = one_scan[2]
-        if angle < limit:
-            sector = np.append(dist)
-        else:
-            sector_avg = np.avg(sector)
-            limit = limit + 45
+            if sector_avg < distance_warning:
+                bounds[(limit - 90) / 45] = 1
 
-        if sector_avg < distance_warning:
-            bounds[(limit - 90) / 45] = 1
+            print(sector_avg)
 
 
-        print(sector_avg)
 
     except KeyboardInterrupt:
         print('Stoping.')
