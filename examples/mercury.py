@@ -13,7 +13,7 @@ from rplidar import RPLidar
 
 def run():
     '''Main function'''
-    PORT_NAME = '/dev/ttyUSB0'
+    PORT_NAME = '/dev/ttyUSB1'
     lidar = RPLidar(PORT_NAME)
     data = []
     limit = 45
@@ -43,13 +43,6 @@ def run():
 
             if sector_avg < distance_warning:
                 bounds[(limit-90)/45] = 1
-
-
-
-
-
-
-
 
     except KeyboardInterrupt:
         print('Stoping.')
