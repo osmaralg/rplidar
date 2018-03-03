@@ -29,7 +29,7 @@ def run():
 
     iterator = lidar.iter_scans()
     ani = animation.FuncAnimation(fig, update_line,
-        fargs=(iterator, line), interval=50)
+        fargs=(iterator, line), interval=100)
     plt.show()
     lidar.stop()
     lidar.disconnect()
