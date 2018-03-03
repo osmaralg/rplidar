@@ -18,6 +18,7 @@ def run(usb):
     lidar = RPLidar(PORT_NAME)
     data = []
     limit = 45
+    sector = np.zeros(1)
     # commenta
     try:
         print('Recording measurments... Press Crl+C to stop.')
@@ -26,7 +27,7 @@ def run(usb):
 
             one_scan = np.asarray(measurment)
             print(one_scan)
-            sector = np.zeros(1)
+
             bounds = np.zeros(8)
             sector_avg = 6000
             distance_warning = .4
@@ -38,12 +39,12 @@ def run(usb):
             if angle < limit:
                 sector = np.append(sector,dist)
 
-            print (sector)
-            '''
             else:
+                print(sector)
                 sector_avg = np.average(sector)
                 limit = limit + 45
-
+                sector = np.zeros(1)
+            '''
             if sector_avg < distance_warning:
                 bounds[(limit - 90) / 45] = 1
                 '''
