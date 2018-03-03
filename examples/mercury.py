@@ -38,7 +38,7 @@ def run(usb):
             if angle < limit:
                 sector = np.append(dist)
             else:
-                sector_avg = np.avg(sector)
+                sector_avg = np.average(sector)
                 limit = limit + 45
 
             if sector_avg < distance_warning:
