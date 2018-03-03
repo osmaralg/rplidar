@@ -24,33 +24,30 @@ def run(usb):
 
         for measurment in lidar.iter_measurments():
             print (measurment)
+            one_scan = np.asarray(measurment)
             line = '\t'.join(str(v) for v in measurment)
 
 
-
-        '''
-        iterator = np.asarray(iterator)
-        print(iterator)
-
-        n, m = np.size(iterator)
+        n = np.size(lecture)
         sector = np.zeros(1)
         bounds = np.zeros(8)
         sector_avg = 6
         distance_warning = .4
-        for lecture in range(0, n-1):
 
-            one_scan = iterator[lecture,:]
-            dist = one_scan[2]
-            angle = one_scan[1]
-            if angle < limit:
-                sector = np.append(dist)
-            else:
-                sector_avg = np.avg(sector)
-                limit = limit + 45
+        dist = one_scan[3]
+        angle = one_scan[2]
+        if angle < limit:
+            sector = np.append(dist)
+        else:
+            sector_avg = np.avg(sector)
+            limit = limit + 45
 
-            if sector_avg < distance_warning:
-                bounds[(limit-90)/45] = 1
-        '''
+        if sector_avg < distance_warning:
+            bounds[(limit - 90) / 45] = 1
+
+
+        print(sector_avg)
+
     except KeyboardInterrupt:
         print('Stoping.')
     lidar.stop()
