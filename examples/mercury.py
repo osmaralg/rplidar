@@ -34,6 +34,8 @@ def run(usb):
 
             dist = one_scan[3]
             angle = float(one_scan[2])
+            print ("one scan 2 ")
+            print (one_scan[2])
             print(dist, angle)
 
             if angle < limit:
