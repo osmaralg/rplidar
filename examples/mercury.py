@@ -24,8 +24,6 @@ def run():
         iterator = np.asarray(iterator)
         print(iterator)
 
-        iterator = np.array(iterator)
-        print (iterator)
         n, m = np.size(iterator)
         sector = np.zeros(1)
         bounds = np.zeros(8)
