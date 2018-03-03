@@ -23,8 +23,8 @@ def run(usb):
         print('Recording measurments... Press Crl+C to stop.')
 
         for measurment in lidar.iter_measurments():
+            print (measurment)
             line = '\t'.join(str(v) for v in measurment)
-            print (line)
 
 
 
