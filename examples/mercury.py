@@ -10,11 +10,12 @@ import numpy as np
 from rplidar import RPLidar
 
 
-PORT_NAME = '/dev/ttyUSB0'
+
 
 
 def run(path):
     '''Main function'''
+    PORT_NAME = '/dev/ttyUSB0'
     lidar = RPLidar(PORT_NAME)
     data = []
     limit = 45
@@ -59,4 +60,4 @@ def run(path):
     np.save(path, np.array(data))
 
 if __name__ == '__main__':
-    run(sys.argv[1])
+    run()
