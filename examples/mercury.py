@@ -23,7 +23,7 @@ def run(usb):
         print('Recording measurments... Press Crl+C to stop.')
 
         for measurment in lidar.iter_measurments():
-            print (measurment)
+
             one_scan = np.asarray(measurment)
             sector = np.zeros(1)
             bounds = np.zeros(8)
@@ -32,6 +32,9 @@ def run(usb):
 
             dist = one_scan[3]
             angle = one_scan[2]
+            print(dist, angle)
+
+            '''
             if angle < limit:
                 sector = np.append(sector,dist)
             else:
@@ -40,6 +43,7 @@ def run(usb):
 
             if sector_avg < distance_warning:
                 bounds[(limit - 90) / 45] = 1
+                '''
 
 
 
