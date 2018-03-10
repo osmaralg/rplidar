@@ -39,15 +39,15 @@ def run(usb):
 
             dist = one_scan[3]
             angle = float(one_scan[2])
-            print("angle")
-            print(angle)
-            print("limit")
-            print(limit)
+            #print("angle")
+            #print(angle)
+            #print("limit")
+            #print(limit)
 
 
             if (angle < limit+ 10) and (angle > limit - 60):
 
-                sector = np.append(sector, angle)
+                sector = np.append(sector, dist)
                 #print("sector")
                 #print(sector)
 
@@ -63,6 +63,8 @@ def run(usb):
 
                     print("bounds")
                     print(bounds)
+                    mask = bounds < 1000
+                    print(mask)
 
             if limit > 360:
                 limit = 45
