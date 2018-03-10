@@ -41,38 +41,32 @@ def run(usb):
             print("angle")
             print(angle)
 
-            if (angle < limit) and (angle > (limit-45)):
+            if (angle < limit):
 
                 sector = np.append(sector, angle)
                 print("sector")
                 print(sector)
                 print("limit")
                 print(limit)
+                start = 1
 
             else:
-                sector_avg = np.average(sector)
-                limit = limit + 45
-                sector = []
-                bounds[count] = sector_avg
-                count = count+1
+                if start ==1:
+                    sector_avg = np.average(sector)
+                    limit = limit + 45
+                    sector = []
+                    bounds[count] = sector_avg
+                    count = count+1
+
             if limit >= 360:
                 limit = 45
                 count = 0
 
-            print(bounds)
+            #print(bounds)
 
 
 
-            '''
-            else:
-                print(sector)
-                sector_avg = np.average(sector)
-                limit = limit + 45
-                sector = np.zeros(1)
-            
-            if sector_avg < distance_warning:
-                bounds[(limit - 90) / 45] = 1
-                '''
+
 
 
 
