@@ -61,8 +61,6 @@ def run(usb):
                     sector = []
 
 
-                    print("bounds")
-                    print(bounds)
                     mask = bounds < 500
                     print(mask)
 
