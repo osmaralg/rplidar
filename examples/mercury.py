@@ -41,14 +41,16 @@ def run(usb):
             angle = float(one_scan[2])
             print("angle")
             print(angle)
+            print("limit")
+            print(limit)
+
 
             if (angle < limit) and (angle > limit - 45):
 
                 sector = np.append(sector, angle)
                 #print("sector")
                 #print(sector)
-                #print("limit")
-                #print(limit)
+
                 start = 1
 
             else:
