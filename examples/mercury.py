@@ -58,7 +58,8 @@ def run(usb):
 
                     print(mask_to_plot, "\r")
                     file = open("testfile.txt", "w")
-                    file.write(mask_to_plot)
+                    mask_to_write = np.array2string(mask_to_plot)
+                    file.write(mask_to_write)
 
                 if limit > 360:
                     limit = 45
