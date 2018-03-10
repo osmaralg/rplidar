@@ -61,8 +61,9 @@ def run(usb):
                     mask_to_plot[mask] = 0
 
                     print(mask_to_plot, "\r")
-                    file = open("testfile.txt", ”w”)
+                    file = open("testfile.txt", "w")
                     file.write(mask_to_plot)
+
                 if limit > 360:
                     limit = 45
 
