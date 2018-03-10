@@ -52,14 +52,17 @@ def run(usb):
 
 
                     mask = bounds < distance_warning
-
+                    bounds_logic = np.zeros(8, dtype=int)
+                    for i in range(0, 7):
+                        if bounds[i] < distance_warning:
+                            bounds_logic[i] = 1
 
 
                     file = open("testfile.txt", "w")
-                    mask_to_write = np.array2string(bounds)
+                    mask_to_write = np.array2string(bounds_logic)
                     file.write(mask_to_write)
                     print(mask_to_write)
-                    for i in range(1,10):
+                    for i in range(1,20):
                         print('\r')
 
 
