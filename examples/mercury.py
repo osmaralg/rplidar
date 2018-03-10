@@ -45,7 +45,7 @@ def run(usb):
             print(limit)
 
 
-            if (angle < limit) and (angle > limit - 45):
+            if (angle < limit) and (angle > limit - 60):
 
                 sector = np.append(sector, angle)
                 #print("sector")
