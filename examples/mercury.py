@@ -6,11 +6,16 @@ Usage example:
 
 $ mercury.py 0 '
 $ mercury.py 1 '
-where 0 is the dev/ttyUSB0'''
+where 0 is the dev/ttyUSB0
+where 1 is the dev/ttyUSB1
+etc
+'''
 
 import sys
 import numpy as np
 from rplidar import RPLidar
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
 
 
@@ -31,7 +36,7 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-            distance_warning = .4
+            distance_warning = 200 # mm
 
             dist = one_scan[3]
             angle = float(one_scan[2])
@@ -51,10 +56,26 @@ def run(usb):
 
 
                     mask = bounds < distance_warning
-                    print(mask)
+                    mask_to_plot = mask
+                    mask_to_plot[mask] = 1
+                    mask_to_plot[mask] = 0
+
+                    print(mask_to_plot)
 
             if limit > 360:
                 limit = 45
+
+            fig = plt.figure()
+            ax = plt.subplot(111, projection='polar')
+            line = ax.scatter([0, 0], [0, 0], s=5, c=[IMIN, IMAX],
+                              cmap=plt.cm.Greys_r, lw=0)
+            ax.set_rmax(DMAX)
+            ax.grid(True)
+
+            iterator = lidar.iter_scans()
+            ani = animation.FuncAnimation(fig, mask_to_plot,
+                                          fargs=(iterator, line), interval=300)
+            plt.show()
 
     except KeyboardInterrupt:
         print('Stoping.')
