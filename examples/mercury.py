@@ -15,9 +15,6 @@ import sys
 import numpy as np
 from rplidar import RPLidar
 
-
-
-
 def run(usb):
     '''Main function'''
     PORT_NAME = '/dev/ttyUSB'
