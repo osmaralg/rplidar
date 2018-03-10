@@ -14,8 +14,7 @@ etc
 import sys
 import numpy as np
 from rplidar import RPLidar
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+
 
 
 
