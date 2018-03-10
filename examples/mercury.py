@@ -55,7 +55,7 @@ def run(usb):
                 sector = []
                 bounds[count] = sector_avg
                 count = count+1
-            if limit > 360:
+            if limit >= 360:
                 limit = 45
                 count = 0
 
