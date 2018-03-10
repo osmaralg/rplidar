@@ -63,7 +63,7 @@ def run(usb):
 
                     print("bounds")
                     print(bounds)
-                    mask = bounds < 1000
+                    mask = bounds < 500
                     print(mask)
 
             if limit > 360:
