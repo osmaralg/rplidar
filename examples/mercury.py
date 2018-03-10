@@ -60,7 +60,7 @@ def run(usb):
                     file.write(mask_to_write)
                     print(mask_to_write)
                     for i in range(1,10):
-                        print('\r', end='')
+                        print('\r')
 
 
 
