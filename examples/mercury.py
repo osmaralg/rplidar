@@ -52,16 +52,18 @@ def run(usb):
 
 
                     mask = bounds < distance_warning
-                    mask_to_plot = np.zeros(8, dtype=int)
-                    mask_to_plot[mask] = 1
-                    mask_to_plot[mask] = 0
+
 
 
                     file = open("testfile.txt", "w")
-                    mask_to_write = np.array2string(mask_to_plot)
+                    mask_to_write = np.array2string(bounds)
                     file.write(mask_to_write)
-                    print("\r", mask_to_write)
-                    print(mask)
+                    print(mask_to_write)
+                    for i in range(1,10):
+                        print('\r', end='')
+
+
+
                     #sys.stdout.write(mask_to_write)
 
                 if limit > 360:
