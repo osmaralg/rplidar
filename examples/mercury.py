@@ -31,26 +31,15 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-
-
-
-
             distance_warning = .4
 
             dist = one_scan[3]
             angle = float(one_scan[2])
-            #print("angle")
-            #print(angle)
-            #print("limit")
-            #print(limit)
 
 
-            if (angle < limit+ 10) and (angle > limit - 60):
+            if (angle < limit+ 10) and (angle > limit - 55):
 
                 sector = np.append(sector, dist)
-                #print("sector")
-                #print(sector)
-
                 start = 1
 
             else:
@@ -61,22 +50,11 @@ def run(usb):
                     sector = []
 
 
-                    mask = bounds < 500
+                    mask = bounds < distance_warning
                     print(mask)
 
             if limit > 360:
                 limit = 45
-
-
-            #print(bounds)
-
-
-
-
-
-
-
-
 
     except KeyboardInterrupt:
         print('Stoping.')
