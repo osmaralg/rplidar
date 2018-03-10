@@ -30,8 +30,7 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-            print("one_scan")
-            print(one_scan)
+
 
 
             sector_avg = 6000
@@ -39,9 +38,10 @@ def run(usb):
 
             dist = one_scan[3]
             angle = float(one_scan[2])
+            print("angle")
+            print(angle)
 
-            #
-            if angle < limit:
+            if (angle < limit) and (angle > (limit-45)):
 
                 sector = np.append(sector, angle)
                 print("sector")
