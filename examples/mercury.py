@@ -52,9 +52,9 @@ def run(usb):
 
 
                     mask = bounds < distance_warning
-                    mask_to_plot = mask
-                    mask_to_plot[mask] = 1
-                    mask_to_plot[mask] = 0
+                    mask_to_plot = np.zeros(8, dtype=int)
+                    mask_to_plot[mask] = int(1)
+                    mask_to_plot[mask] = int(0)
 
                     file = open("testfile.txt", "w")
                     mask_to_write = np.array2string(mask_to_plot)
