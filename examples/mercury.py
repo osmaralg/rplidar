@@ -64,7 +64,7 @@ def run(usb):
                     print("bounds")
                     print(bounds)
 
-            if limit >= 360:
+            if limit > 360:
                 limit = 45
 
 
