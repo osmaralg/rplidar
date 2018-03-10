@@ -30,7 +30,7 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-            print("one_scan)
+            print("one_scan")
             print(one_scan)
 
 
