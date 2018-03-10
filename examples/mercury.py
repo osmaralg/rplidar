@@ -32,7 +32,7 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-            distance_warning = 200 # mm
+            distance_warning = 10 # mm
 
             dist = one_scan[3]
             angle = float(one_scan[2])
@@ -56,10 +56,12 @@ def run(usb):
                     mask_to_plot[mask] = int(1)
                     mask_to_plot[mask] = int(0)
 
+
                     file = open("testfile.txt", "w")
                     mask_to_write = np.array2string(mask_to_plot)
                     file.write(mask_to_write)
                     print("\r", mask_to_write)
+                    print(mask)
                     #sys.stdout.write(mask_to_write)
 
                 if limit > 360:
