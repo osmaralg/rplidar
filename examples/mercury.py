@@ -21,7 +21,7 @@ def run(usb):
     lidar = RPLidar(PORT_NAME)
     data = []
     limit = 45.0
-    sector = np.zeros(1)
+
     # commenta
     try:
         print('Recording measurments... Press Crl+C to stop.')
@@ -29,7 +29,7 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-            #print(one_scan)
+            print(one_scan)
 
             bounds = np.zeros(8)
             sector_avg = 6000
