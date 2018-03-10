@@ -21,7 +21,7 @@ def run(usb):
     lidar = RPLidar(PORT_NAME)
     data = []
     limit = 45.0
-
+    sector = []
     # commenta
     try:
         print('Recording measurments... Press Crl+C to stop.')
