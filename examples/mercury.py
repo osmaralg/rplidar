@@ -54,16 +54,17 @@ def run(usb):
             else:
                 if start ==1:
                     sector_avg = np.average(sector)
+                    bounds[(limit / 45) - 1] = sector_avg
                     limit = limit + 45
                     sector = []
-                    bounds[count] = sector_avg
-                    count = count+1
+
+
                     print("bounds")
                     print(bounds)
 
             if limit >= 360:
                 limit = 45
-                count = 0
+
 
             #print(bounds)
 
