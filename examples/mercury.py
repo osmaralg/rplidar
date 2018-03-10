@@ -4,7 +4,10 @@
 '''Records scans to a given file in the form of numpy array.
 Usage example:
 
-$ ./record_scans.py out.npy'''
+$ mercury.py 0 '
+$ mercury.py 1 '
+where 0 is the dev/ttyUSB0'''
+
 import sys
 import numpy as np
 from rplidar import RPLidar
@@ -26,7 +29,7 @@ def run(usb):
         for measurment in lidar.iter_measurments():
 
             one_scan = np.asarray(measurment)
-            print(one_scan)
+            #print(one_scan)
 
             bounds = np.zeros(8)
             sector_avg = 6000
@@ -34,12 +37,14 @@ def run(usb):
 
             dist = one_scan[3]
             angle = float(one_scan[2])
-            print ("one scan 2 ")
-            print (one_scan[2])
-            print(dist, angle)
+            print("one scan 2 ")
+            print(one_scan[2])
             #
             if angle < limit:
-                np.append(sector, angle)
+
+                sector = np.append(sector, angle)
+                print(sector)
+
 
             '''
             else:
@@ -58,6 +63,7 @@ def run(usb):
 
     except KeyboardInterrupt:
         print('Stoping.')
+        lidar.stop()
         lidar.stop()
         lidar.disconnect()
 
