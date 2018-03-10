@@ -34,7 +34,7 @@ def run(usb):
 
 
 
-            sector_avg = 6000
+
             distance_warning = .4
 
             dist = one_scan[3]
@@ -45,10 +45,10 @@ def run(usb):
             if (angle < limit) and (angle > limit - 45):
 
                 sector = np.append(sector, angle)
-                print("sector")
-                print(sector)
-                print("limit")
-                print(limit)
+                #print("sector")
+                #print(sector)
+                #print("limit")
+                #print(limit)
                 start = 1
 
             else:
@@ -58,6 +58,8 @@ def run(usb):
                     sector = []
                     bounds[count] = sector_avg
                     count = count+1
+                    print("bounds")
+                    print(bounds)
 
             if limit >= 360:
                 limit = 45
