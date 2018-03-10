@@ -24,7 +24,7 @@ def run(usb):
     bounds = np.zeros(8)
     count = 0
     start = 0
-    # commenta
+
     try:
         print('Recording measurments... Press Crl+C to stop.')
 
