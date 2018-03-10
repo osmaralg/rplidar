@@ -19,9 +19,10 @@ def run(usb):
     PORT_NAME = '/dev/ttyUSB'
     PORT_NAME = PORT_NAME + str(usb)
     lidar = RPLidar(PORT_NAME)
-    data = []
     limit = 45.0
     sector = []
+    bounds = np.zeros(8)
+    count = 0
     # commenta
     try:
         print('Recording measurments... Press Crl+C to stop.')
@@ -31,19 +32,26 @@ def run(usb):
             one_scan = np.asarray(measurment)
             print(one_scan)
 
-            bounds = np.zeros(8)
+
             sector_avg = 6000
             distance_warning = .4
 
             dist = one_scan[3]
             angle = float(one_scan[2])
-            print("one scan 2 ")
-            print(one_scan[2])
+
             #
             if angle < limit:
 
                 sector = np.append(sector, angle)
                 print(sector)
+            else:
+                sector_avg = np.average(sector)
+                limit = limit + 45
+                sector = []
+                bounds[count] = sector_avg
+                count = count+1
+            print(bounds)
+
 
 
             '''
